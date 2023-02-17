@@ -103,6 +103,7 @@ celerybeat.pid
 
 # Environments
 .env
+.env.docker
 .venv
 env/
 venv/
@@ -127,3 +128,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+.DS_Store
+
+media/
+staticfiles/
+.idea
+.ipynb_checkpoints/
+.vscode
+*.cast

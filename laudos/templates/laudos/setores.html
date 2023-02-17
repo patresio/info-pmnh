@@ -1,0 +1,194 @@
+{% extends 'laudos/main.html' %} {% block content %}
+<div class="container">
+  <div class="row">
+    <!-- Diretoria -->
+    <div class="col" style="border-right: 1px solid #333">
+      <div class="row">
+        <h1 class="col">Diretorias</h1>
+        <div class="col-md-2">
+          <button
+            type="button"
+            class="btn btn-success form-control"
+            data-bs-toggle="modal"
+            data-bs-target="#modalDiretoria"
+          >
+            <i class="bi bi-plus-square-fill"></i>
+          </button>
+        </div>
+      </div>
+
+      <form method="GET" style="display: flex">
+        <div class="row">
+          <div class="col-md-10">
+            <input
+              type="text"
+              name="search-diretoria"
+              placeholder="Procure pela Diretoria!"
+              value=""
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-2">
+            <input class="btn btn-primary" type="submit" value="Busca" />
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome da Diretoria</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for diretoria in diretorias %}
+              <tr>
+                <th scope="row">{{diretoria.id}}</th>
+                <td>{{diretoria.nome}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Diretoria -->
+    <div class="modal" tabindex="-1" id="modalDiretoria">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Cadastrar nova Diretoria:</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form action="" method="POST">
+            {% csrf_token %}
+            <div class="modal-body">
+              <div class="d-flex justify-content-center">
+                <h1>Teste diretoria</h1>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+              <input
+                type="submit"
+                class="btn btn-success"
+                value="Salvar Diretoria"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Setores -->
+    <div class="col" style="border-left: 1px solid #333">
+      <div class="row">
+        <h1 class="col">Setores</h1>
+        <div class="col-md-2">
+          <button
+            type="button"
+            class="btn btn-success form-control"
+            data-bs-toggle="modal"
+            data-bs-target="#modalSetor"
+          >
+            <i class="bi bi-plus-square-fill"></i>
+          </button>
+        </div>
+      </div>
+      <form method="GET" style="display: flex">
+        <div class="row">
+          <div class="col-md-10">
+            <input
+              type="text"
+              name="search-setores"
+              placeholder="Procure pela Setores!"
+              value=""
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-2">
+            <input class="btn btn-primary" type="submit" value="Busca" />
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome do Setor</th>
+                <th scope="col">Responsável</th>
+                <th scope="col">Diretoria</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for setor in setores %}
+              <tr>
+                <th scope="row">{{setor.id}}</th>
+                <td>{{setor.nome}}</td>
+                <td>{{setor.responsavel}}</td>
+                <td>{{setor.diretoria}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Setor -->
+<div class="modal" tabindex="-1" id="modalSetor">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cadastrar novo Setor:</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="modal-body">
+          <div class="d-flex justify-content-center">
+            <h1>Teste Setor</h1>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Fechar
+          </button>
+          <input
+            type="submit"
+            class="btn btn-success"
+            value="Salvar Diretoria"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content%}
