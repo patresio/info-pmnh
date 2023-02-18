@@ -19,9 +19,9 @@
 
       <form method="GET" style="display: flex">
         <div class="input-group">
-          <input class="form-control border-end-0 border rounded-pill" type="text" value="" id="diretoria-search-input" placeholder="Pesquise aqui a diretoria ...">
+          <input class="form-control border-0 rounded" type="text" value="" id="diretoria-search-input" placeholder="Pesquise aqui a diretoria ...">
           <span class="input-group-append">
-              <button class="btn btn-primary border-start-0 border rounded-pill ms-n3" type="button">
+              <button class="btn btn-primary border-start-0 border rounded ms-n3" type="button">
                   <i class="fa fa-search"></i>
               </button>
           </span>
@@ -46,7 +46,7 @@
                 <td>
                   <a
                     href=""
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-warning btn-sm"
                     ><i class="bi bi-cloud-arrow-up-fill"></i> Atualizar</a
                   >
                 </td>
@@ -83,11 +83,11 @@
             <div class="modal-body">
               <div class="d-flex justify-content-center">
                 <div class="row">
-                  <div class="row">
+                  <!-- <div class="row">
                     <div class="col">
                       <input type="text" name="diretoria_id" id="diretoria_id" disabled class="form-control">
                     </div>
-                  </div>
+                  </div> -->
 
                   <div class="row">
                     <div class="col">
@@ -139,9 +139,9 @@
       </div>
       <form method="GET" style="display: flex">
         <div class="input-group">
-          <input class="form-control border-end-0 border rounded-pill" type="text" value="" id="setor-search-input" placeholder="Pesquise aqui o setor ...">
+          <input class="form-control border-0 rounded" type="text" value="" id="setor-search-input" placeholder="Pesquise aqui o setor ...">
           <span class="input-group-append">
-              <button class="btn btn-primary border-start-0 border rounded-pill ms-n3" type="button">
+              <button class="btn btn-primary border-start-0 border rounded ms-n3" type="button">
                   <i class="fa fa-search"></i>
               </button>
           </span>
@@ -170,7 +170,7 @@
                 <td>
                   <a
                     href=""
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-warning btn-sm"
                     ><i class="bi bi-cloud-arrow-up-fill"></i> Atualizar</a
                   >
                 </td>
@@ -258,3 +258,9 @@
   </div>
 </div>
 {% endblock content%}
+<!-- Bloco de script -->
+{% block script %}
+<script>
+  
+</script>
+{% endblock script %}
