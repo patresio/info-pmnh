@@ -40,6 +40,8 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome da Diretoria</th>
+                <th scope="col">Atualizar</th>
+                <th scope="col">Remover</th>
               </tr>
             </thead>
             <tbody>
@@ -47,6 +49,14 @@
               <tr>
                 <th scope="row">{{diretoria.id}}</th>
                 <td>{{diretoria.nome}}</td>
+                <td></td>
+                <td>
+                  <button type="button" class="btn btn-danger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-x-square-fill" viewBox="0 0 16 16">
+                      <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+                    </svg>
+                  </button>
+                </td>
               </tr>
               {% endfor %}
             </tbody>
@@ -68,11 +78,22 @@
               aria-label="Close"
             ></button>
           </div>
-          <form action="" method="POST">
+          <form action="{% url 'nova_diretoria' %}" method="POST">
             {% csrf_token %}
             <div class="modal-body">
               <div class="d-flex justify-content-center">
-                <h1>Teste diretoria</h1>
+                <div class="row">
+                  <div class="row">
+                    <div class="col">
+                      <label for="">Nome da Diretoria:</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <input type="text" name="diretoria_nome" id="diretoria_nome" class="form-control" placeholder="Digite o nome da Diretoria ...">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="modal-footer">
@@ -134,6 +155,8 @@
                 <th scope="col">Nome do Setor</th>
                 <th scope="col">Responsável</th>
                 <th scope="col">Diretoria</th>
+                <th scope="col"><i class="bi bi-arrow-up-square-fill"></i></th>
+                <th scope="col"><i class="bi bi-x-square-fill"></i></th>
               </tr>
             </thead>
             <tbody>
@@ -143,6 +166,8 @@
                 <td>{{setor.nome}}</td>
                 <td>{{setor.responsavel}}</td>
                 <td>{{setor.diretoria}}</td>
+                <td></td>
+                <td></td>
               </tr>
               {% endfor %}
             </tbody>
@@ -166,11 +191,39 @@
           aria-label="Close"
         ></button>
       </div>
-      <form action="" method="POST">
+      <form action="{% url 'novo_setor' %}" method="POST">
         {% csrf_token %}
         <div class="modal-body">
           <div class="d-flex justify-content-center">
-            <h1>Teste Setor</h1>
+            <div class="row">
+                  <div class="row">
+                    <div class="col">
+                      <label for="">
+                        Nome do Setor:
+                      </label>
+                      <input type="text" name="nome_setor" id="nome_setor" placeholder="Digite o nome do setor ..." class="form-control">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <label for="">
+                        Nome do Responsável
+                      </label>
+                      <input type="text" name="responsavel_setor" id="responsavel_setor" placeholder="Digite o nome do Responsavel do setor" class="form-control">
+                    </div>
+                  </div>
+                  <div class="row"> 
+                    <div class="col">
+                      <label for="">Selecione a Diretoria:</label>
+                      <select name="diretoria_setor" id="diretoria_setor" class="form-control">
+                        <option value=""></option>
+                        {% for diretoria in diretorias %}
+                        <option value="{{diretoria.id}}">{{diretoria.nome}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+            </div>
           </div>
         </div>
         <div class="modal-footer">
@@ -184,7 +237,7 @@
           <input
             type="submit"
             class="btn btn-success"
-            value="Salvar Diretoria"
+            value="Salvar Setor"
           />
         </div>
       </form>
