@@ -1,4 +1,4 @@
-from django.urls import path
+""" from django.urls import path
 
 from . import views
 
@@ -11,3 +11,4 @@ urlpatterns = [
     path('novo_setor/', views.createSetor, name='novo_setor'),
 
 ]
+ """

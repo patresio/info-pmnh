@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+""" from django.shortcuts import render, redirect
 
 
 from .models import *
@@ -54,3 +54,4 @@ def createSetor(request):
         setor.save()
 
         return redirect('setores')
+ """
