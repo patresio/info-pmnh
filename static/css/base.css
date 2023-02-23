@@ -19,12 +19,9 @@ body {
     color: var(--headline);
 }
 
-/*-------- SETOR E DIRETORIA -----------*/
-.edit {
-    color: yellow;
-    font-size: 2.5rem;
+a, a:visited, a:active {
+    text-decoration: none;
 }
-
 
 /*-------- NAV BAR -----------*/
 .navbar-custom {
@@ -32,8 +29,5 @@ body {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.5rem;
     color: var(--brand-beige);
-}
-
-.navbar-custom h1 {
-    padding: 0.625rem;
+    padding-left: 2rem;
 }

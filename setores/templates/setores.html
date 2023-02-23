@@ -1,118 +1,37 @@
-{% extends 'base.html' %} {% block content %}
-<div class="wrapper" style="padding-top:0.625rem">
-  <div class="row">
-    <!-- Diretoria -->
-    <div class="col" style="border-right: 1px solid #333">
-      <div class="row">
-        <h1 class="col">Diretorias</h1>
-        <div class="col-md-2">
-            <a href="#addDiretoriaModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i></a>
-        </div>
-      </div>
-
-      <form method="GET" style="display: flex">
-        <div class="input-group">
-          <input class="form-control border-0 rounded" type="text" value="" id="diretoria-search-input" placeholder="Pesquise aqui a diretoria ...">
-          <span class="input-group-append">
-              <button class="btn btn-primary border-start-0 border rounded ms-n3" type="button">
-                  <i class="bi bi-search"></i>
-              </button>
-          </span>
-        </div>
-      </form>
-      <div class="row">
-        <div class="col">
-          <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome da Diretoria</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>teste</td>
-                <td>
-                    <a href="#editDiretoriaModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                </td>
-                <td>
-                    <a href="#deleteDiretoriaModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- Setores -->
-    <div class="col" style="border-left: 1px solid #333">
-      <div class="row">
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
         <h1 class="col">Setores</h1>
-        <div class="col-md-2">
-          <button
-            type="button"
-            class="btn btn-success form-control"
-            data-bs-toggle="modal"
-            data-bs-target="#modalSetor"
-          >
-            <i class="bi bi-plus-square-fill"></i>
-          </button>
-        </div>
-      </div>
-      <form method="GET" style="display: flex">
-        <div class="input-group">
-          <input class="form-control border-0 rounded" type="text" value="" id="setor-search-input" placeholder="Pesquise aqui o setor ...">
-          <span class="input-group-append">
-              <button class="btn btn-primary border-start-0 border rounded ms-n3" type="button">
-                  <i class="bi bi-search"></i>
-              </button>
-          </span>
-        </div>
-      </form>
-      <div class="row">
-        <div class="col">
-          <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome do Setor</th>
-                <th scope="col">Responsável</th>
-                <th scope="col">Diretoria</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Microsoft</td>
-                <td>Ohio</td>
-                <td>Apple</td>
-                <td>
-                  <a
-                    href=""
-                    class="btn btn-warning btn-sm"
-                    ><i class="bi bi-cloud-arrow-up-fill"></i> Atualizar</a
-                  >
-                </td>
-                <td>
-                  <a
-                    href=""
-                    class="btn btn-danger btn-sm"
-                    ><i class="bi bi-trash-fill"></i> Remover</a
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+        <a href="{% url 'add-setor' %}" class="col">Adicionar</a>
     </div>
-  </div>
+    <div class="row">
+        <div class="wrapper">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Nome do Setor:</td>
+                        <td>Responsável</td>
+                        <td>Diretoria</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for setor in setores %}
+                    <tr>
+                        <td>{{ setor.id }}</td>
+                        <td>{{ setor.nome }}</td>
+                        <td>{{ setor.responsavel }}</td>
+                        <td>{{ setor.diretoria }}</td>
+                        <td><a href="{% url 'edit-setor' setor.id %}">Editar</a></td>
+                        <td><a href="{% url 'delete-setor' setor.id %}">Remover</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-
-{% endblock content%}
+{% endblock content %}

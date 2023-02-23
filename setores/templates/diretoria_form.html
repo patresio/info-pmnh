@@ -1,0 +1,14 @@
+
+{% extends 'base.html' %} {% block content %}
+<h1>Adicionar Diretoria</h1>
+<div class="header-bar">
+  <a href="{% url 'diretorias' %}">&#8592; Voltar</a>
+</div>
+
+<div class="card-body">
+  <form action="" method="post">
+    {% csrf_token %} {{form.as_p}}
+    <input class="button" type="submit" value="Inserir" />
+  </form>
+</div>
+{% endblock content%}

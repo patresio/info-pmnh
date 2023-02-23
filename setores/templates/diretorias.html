@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <h1 class="col">Diretorias</h1>
+        <a href="{% url 'add-diretoria' %}" class="col">Adicionar</a>
+    </div>
+    <div class="row">
+        <div class="wrapper">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Nome da Diretoria:</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for diretoria in diretorias %}
+                    <tr>
+                        <td>{{ diretoria.id }}</td>
+                        <td>{{ diretoria.nome }}</td>
+                        <td><a href="{% url 'edit-diretoria' diretoria.id %}">Editar</a></td>
+                        <td><a href="{% url 'delete-diretoria' diretoria.id %}">Remover</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Deletar Diretoria</h1>
+<div class="container-fluid">
+  <form method="POST">
+    {% csrf_token %}
+    <p>Tem certeza que quer remover o seguinte registro <b class="btn btn-danger">{{diretoria}}</b> ?</p>
+    <input class="button" type="submit" value="Remover" />
+  </form>
+</div>
+<div class="wrapper">
+    <a href="{% url 'diretorias' %}">&#8592; Voltar</a>
+  </div>
+{% endblock content%}
